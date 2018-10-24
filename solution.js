@@ -62,18 +62,27 @@ function checksum(data) {
 
     let total = 0;
 
+
+
     data.forEach(row => {
         let min = Number.MAX_VALUE;
         let max = Number.MIN_VALUE;
-        row.forEach(num => {
 
-            if (num < min){
-                min = num;
-            }
-            if(num > max){
-                max = num;
-            }
-        });
+
+        //or use Math.max and min and spread operator
+        max = Math.max(...row);
+        min = Math.min(...row);
+        //
+        //
+        // row.forEach(num => {
+        //
+        //     if (num < min){
+        //         min = num;
+        //     }
+        //     if(num > max){
+        //         max = num;
+        //     }
+        // });
 
         total += (max - min);
 
